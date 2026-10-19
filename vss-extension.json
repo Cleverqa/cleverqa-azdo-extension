@@ -1,0 +1,40 @@
+{
+  "manifestVersion": 1,
+  "id": "cleverqa-release",
+  "publisher": "cleverqa",
+  "version": "1.0.0",
+  "name": "CleverQA Release",
+  "description": "Declare a release to CleverQA from Azure Pipelines so crashes and incidents attribute to it.",
+  "public": false,
+  "categories": ["Azure Pipelines"],
+  "tags": ["release", "deployment", "monitoring", "incidents", "crash"],
+  "targets": [
+    { "id": "Microsoft.VisualStudio.Services" }
+  ],
+  "icons": {
+    "default": "images/icon.png"
+  },
+  "content": {
+    "details": { "path": "overview.md" }
+  },
+  "links": {
+    "home": { "uri": "https://cleverqa.com" },
+    "getstarted": { "uri": "https://cleverqa.com" }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/Cleverqa/cleverqa-azdo-extension"
+  },
+  "files": [
+    { "path": "DeclareRelease" },
+    { "path": "images", "addressable": true }
+  ],
+  "contributions": [
+    {
+      "id": "declare-release-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": { "name": "DeclareRelease" }
+    }
+  ]
+}

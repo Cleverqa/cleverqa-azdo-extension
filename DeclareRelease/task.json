@@ -1,0 +1,83 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "9fc5aac7-b588-4bf5-b7b2-bb05f614761c",
+  "name": "CleverQADeclareRelease",
+  "friendlyName": "Declare release to CleverQA",
+  "description": "Declare a release to CleverQA so crashes and incidents attribute to it",
+  "helpUrl": "https://marketplace.visualstudio.com/items?itemName=cleverqa.cleverqa-release",
+  "helpMarkDown": "Pass the API token from a secret pipeline variable, e.g. `$(CLEVERQA_TOKEN)`.",
+  "category": "Deploy",
+  "author": "Clementina Enterprises",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "minimumAgentVersion": "3.232.1",
+  "instanceNameFormat": "Declare release $(version) to CleverQA",
+  "inputs": [
+    {
+      "name": "apiToken",
+      "type": "string",
+      "label": "API token",
+      "required": true,
+      "helpMarkDown": "CleverQA API token (`tok_...`) with the `releases:write` scope. Use a secret variable, e.g. `$(CLEVERQA_TOKEN)`; never paste the token here."
+    },
+    {
+      "name": "project",
+      "type": "string",
+      "label": "Project",
+      "required": true,
+      "helpMarkDown": "CleverQA project slug, as it appears in the project URL."
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "label": "Version",
+      "required": true,
+      "helpMarkDown": "Release version in semver, e.g. `1.4.2`. One leading `v` is stripped, so `v1.4.2` works."
+    },
+    {
+      "name": "platform",
+      "type": "pickList",
+      "label": "Platform",
+      "required": false,
+      "defaultValue": "backend",
+      "options": {
+        "backend": "Backend",
+        "ios": "iOS",
+        "android": "Android"
+      },
+      "helpMarkDown": "Must be a platform enabled on the CleverQA project."
+    },
+    {
+      "name": "buildNumber",
+      "type": "string",
+      "label": "Build number",
+      "required": false,
+      "helpMarkDown": "Build number, if you have one, e.g. `$(Build.BuildNumber)`."
+    },
+    {
+      "name": "apiUrl",
+      "type": "string",
+      "label": "CleverQA URL",
+      "required": false,
+      "defaultValue": "https://cleverqa.com",
+      "helpMarkDown": "Only change this for self-hosted CleverQA."
+    }
+  ],
+  "outputVariables": [
+    {
+      "name": "releaseId",
+      "description": "The CleverQA release ID."
+    }
+  ],
+  "execution": {
+    "Node24": {
+      "target": "index.js"
+    },
+    "Node20_1": {
+      "target": "index.js"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "cleverqa-declare-release-task",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Azure Pipelines task: declare a release to CleverQA",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "azure-pipelines-task-lib": "5.281.2"
+  }
+}
