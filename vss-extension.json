@@ -2,10 +2,10 @@
   "manifestVersion": 1,
   "id": "cleverqa-release",
   "publisher": "cleverqa",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "CleverQA Release",
   "description": "Declare a release to CleverQA from Azure Pipelines so crashes and incidents attribute to it.",
-  "public": false,
+  "public": true,
   "categories": [
     "Azure Pipelines"
   ],
