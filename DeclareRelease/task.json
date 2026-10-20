@@ -11,9 +11,9 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 0
+    "Patch": 1
   },
-  "minimumAgentVersion": "3.232.1",
+  "minimumAgentVersion": "2.182.1",
   "instanceNameFormat": "Declare release $(version) to CleverQA",
   "inputs": [
     {
